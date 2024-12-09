@@ -106,6 +106,9 @@
 			);
 			mainGroup = 8EB0440C2D031DA2005519FF;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				8EF385B62D07048A004FA9CA /* XCRemoteSwiftPackageReference "YapDatabase" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 8EB044162D031DA2005519FF /* Products */;
 			projectDirPath = "";
@@ -329,6 +332,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8EF385B62D07048A004FA9CA /* XCRemoteSwiftPackageReference "YapDatabase" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/yapstudios/YapDatabase";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = 8EB0440D2D031DA2005519FF /* Project object */;
 }

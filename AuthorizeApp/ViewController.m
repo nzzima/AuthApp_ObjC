@@ -16,10 +16,12 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    //============================USER DEFAULTS============================
     self.userDefaults = [NSUserDefaults standardUserDefaults];
     [self.userDefaults setObject:@"nzzima" forKey:@"login"];
     [self.userDefaults setObject:@"12345" forKey:@"password"];
     
+    //============================FILE MANAGER============================
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSString *directoryPath = @"Users/nzzima/Desktop/IOS/ObjectiveC/AuthorizeApp/";
     NSString *filePath = [directoryPath stringByAppendingPathComponent:@"userInfo.txt"];
@@ -28,10 +30,11 @@
         NSDictionary *attributes = [fileManager attributesOfItemAtPath:filePath error:nil];
         unsigned long long size = [attributes fileSize];
         if (attributes && size == 0) {
-            NSData *data1 = [@"nzzima" dataUsingEncoding:NSUTF8StringEncoding];
-            [data1 writeToFile:filePath atomically:YES];
-            NSData *data2 = [@"12345" dataUsingEncoding:NSUTF8StringEncoding];
-            [data2 writeToFile:filePath atomically:YES];
+            NSData *data = [@"nzzima:12345" dataUsingEncoding:NSUTF8StringEncoding];
+            [data writeToFile:filePath atomically:YES];
+            NSLog(@"Sucess write data to file");
+        } else {
+            NSLog(@"File not empty");
         }
     } else {
         NSLog(@"File not found");
